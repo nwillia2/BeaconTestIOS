@@ -4,15 +4,15 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Beacon Controller-->
+        <scene sceneID="ofV-hl-E6o">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BeaconTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="o95-Lt-DJf" customClass="BeaconController" customModule="BeaconTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="MoV-Ag-Q29"/>
+                        <viewControllerLayoutGuide type="bottom" id="wlD-Tb-7P3"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="HomeController">
+                    <view key="view" contentMode="scaleToFill" id="1Sv-Or-hYX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -28,38 +28,71 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="transmitBeacon:" destination="BYZ-38-t0r" eventType="touchUpInside" id="17s-PM-0bo"/>
+                                    <action selector="transmitBeacon:" destination="o95-Lt-DJf" eventType="touchUpInside" id="BwB-hF-Ngy"/>
                                 </connections>
                             </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="info" destination="oAj-Da-p1r" id="Ilb-ok-FqZ"/>
+                            <outlet property="transmit" destination="bic-3Y-IxL" id="iJN-OG-dHX"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="info" destination="oAj-Da-p1r" id="ZaF-jL-45D"/>
+                        <outlet property="transmit" destination="bic-3Y-IxL" id="ge4-VG-Jth"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2d3-Vg-Not" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="384" y="-91"/>
+        </scene>
+        <!--Home Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="HomeController" customModule="BeaconTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wk3-Wd-Rj0">
                                 <rect key="frame" x="234" y="285" width="133" height="30"/>
                                 <state key="normal" title="Monitor for Beacon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="atr-nU-bpp" kind="showDetail" id="jFr-2W-G7R"/>
+                                    <segue destination="atr-nU-bpp" kind="showDetail" id="Vpi-PD-Dqr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nCA-f9-DeU">
+                                <rect key="frame" x="249" y="106" width="102" height="30"/>
+                                <state key="normal" title="Create Beacon">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="o95-Lt-DJf" kind="showDetail" id="8xD-Wg-gMh"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <outlet property="info" destination="oAj-Da-p1r" id="EQM-Px-v3k"/>
-                        <outlet property="transmit" destination="bic-3Y-IxL" id="Z2L-6r-gUj"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--View Controller-->
+        <!--Monitor Controller-->
         <scene sceneID="0hg-r9-TwC">
             <objects>
-                <viewController id="atr-nU-bpp" sceneMemberID="viewController">
+                <viewController id="atr-nU-bpp" customClass="MonitorController" customModule="BeaconTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v1d-aa-KvK"/>
                         <viewControllerLayoutGuide type="bottom" id="SQT-dK-tJL"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="vNG-yP-XiW" customClass="MonitorController">
+                    <view key="view" contentMode="scaleToFill" id="vNG-yP-XiW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -69,7 +102,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="monitorBeacons:" destination="vNG-yP-XiW" eventType="touchUpInside" id="3tG-lK-N0N"/>
+                                    <action selector="monitorBeacons:" destination="atr-nU-bpp" eventType="touchUpInside" id="vcO-IF-EJE"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Info..." translatesAutoresizingMaskIntoConstraints="NO" id="HHD-N4-4pC">
@@ -85,6 +118,10 @@
                             <outlet property="monitor" destination="9Ha-cb-9H8" id="svJ-ZW-Fzb"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="info" destination="HHD-N4-4pC" id="CIC-Si-zhV"/>
+                        <outlet property="monitor" destination="9Ha-cb-9H8" id="wwS-TY-xjC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="leA-tP-V1e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
