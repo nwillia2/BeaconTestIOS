@@ -9,6 +9,7 @@
 import UIKit
 
 class HomeController: UIViewController {
+    @IBOutlet weak var createBeacon: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
     }

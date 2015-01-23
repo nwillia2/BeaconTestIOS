@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Beacon Controller-->
@@ -16,14 +17,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Some info here..." translatesAutoresizingMaskIntoConstraints="NO" id="oAj-Da-p1r">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Some info here..." translatesAutoresizingMaskIntoConstraints="NO" id="oAj-Da-p1r">
                                 <rect key="frame" x="16" y="96" width="568" height="33"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bic-3Y-IxL">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bic-3Y-IxL">
                                 <rect key="frame" x="163" y="28" width="274" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="274" id="aEC-60-9KC"/>
+                                </constraints>
                                 <state key="normal" title="iBeacon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -33,6 +37,14 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bic-3Y-IxL" firstAttribute="centerX" secondItem="oAj-Da-p1r" secondAttribute="centerX" id="3DN-kK-YZ5"/>
+                            <constraint firstItem="oAj-Da-p1r" firstAttribute="top" secondItem="bic-3Y-IxL" secondAttribute="bottom" constant="38" id="FTS-6k-oSp"/>
+                            <constraint firstItem="oAj-Da-p1r" firstAttribute="trailing" secondItem="1Sv-Or-hYX" secondAttribute="trailingMargin" id="Glc-Go-xhj"/>
+                            <constraint firstItem="wlD-Tb-7P3" firstAttribute="top" secondItem="oAj-Da-p1r" secondAttribute="bottom" constant="471" id="c9y-0J-LMl"/>
+                            <constraint firstItem="bic-3Y-IxL" firstAttribute="top" secondItem="MoV-Ag-Q29" secondAttribute="bottom" constant="8" symbolic="YES" id="lFp-Jy-etl"/>
+                            <constraint firstItem="oAj-Da-p1r" firstAttribute="leading" secondItem="1Sv-Or-hYX" secondAttribute="leadingMargin" id="tPU-xd-iik"/>
+                        </constraints>
                         <connections>
                             <outlet property="info" destination="oAj-Da-p1r" id="Ilb-ok-FqZ"/>
                             <outlet property="transmit" destination="bic-3Y-IxL" id="iJN-OG-dHX"/>
@@ -45,7 +57,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2d3-Vg-Not" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="384" y="-91"/>
+            <point key="canvasLocation" x="510" y="-279"/>
         </scene>
         <!--Home Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -59,27 +71,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wk3-Wd-Rj0">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wk3-Wd-Rj0">
                                 <rect key="frame" x="234" y="285" width="133" height="30"/>
                                 <state key="normal" title="Monitor for Beacon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="atr-nU-bpp" kind="showDetail" id="Vpi-PD-Dqr"/>
-                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nCA-f9-DeU">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nCA-f9-DeU">
                                 <rect key="frame" x="249" y="106" width="102" height="30"/>
                                 <state key="normal" title="Create Beacon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="o95-Lt-DJf" kind="showDetail" id="8xD-Wg-gMh"/>
+                                    <segue destination="o95-Lt-DJf" kind="showDetail" id="5fq-iV-QnB"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nCA-f9-DeU" firstAttribute="centerX" secondItem="wk3-Wd-Rj0" secondAttribute="centerX" id="GPC-bJ-GFx"/>
+                            <constraint firstItem="wk3-Wd-Rj0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IWL-Vf-y8j"/>
+                            <constraint firstItem="nCA-f9-DeU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="86" id="Q9K-1h-Bi2"/>
+                            <constraint firstItem="wk3-Wd-Rj0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Yb1-DC-G3a"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="createBeacon" destination="nCA-f9-DeU" id="6rW-r6-ggi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -96,7 +114,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ha-cb-9H8">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ha-cb-9H8">
                                 <rect key="frame" x="277" y="28" width="53" height="30"/>
                                 <state key="normal" title="Monitor">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -105,14 +123,24 @@
                                     <action selector="monitorBeacons:" destination="atr-nU-bpp" eventType="touchUpInside" id="vcO-IF-EJE"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Info..." translatesAutoresizingMaskIntoConstraints="NO" id="HHD-N4-4pC">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Info..." translatesAutoresizingMaskIntoConstraints="NO" id="HHD-N4-4pC">
                                 <rect key="frame" x="183" y="73" width="240" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="iQE-gf-ati"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HHD-N4-4pC" firstAttribute="leading" secondItem="vNG-yP-XiW" secondAttribute="leading" constant="183" id="4Pa-Wg-31I"/>
+                            <constraint firstItem="9Ha-cb-9H8" firstAttribute="top" secondItem="v1d-aa-KvK" secondAttribute="bottom" constant="8" symbolic="YES" id="Dy4-wX-0z0"/>
+                            <constraint firstItem="HHD-N4-4pC" firstAttribute="top" secondItem="9Ha-cb-9H8" secondAttribute="bottom" constant="15" id="PuC-1Z-Y8K"/>
+                            <constraint firstItem="HHD-N4-4pC" firstAttribute="centerX" secondItem="9Ha-cb-9H8" secondAttribute="centerX" id="fTl-Eh-iwd"/>
+                            <constraint firstItem="SQT-dK-tJL" firstAttribute="top" secondItem="HHD-N4-4pC" secondAttribute="bottom" constant="493" id="h1g-bL-CH4"/>
+                        </constraints>
                         <connections>
                             <outlet property="info" destination="HHD-N4-4pC" id="hNH-dr-cL0"/>
                             <outlet property="monitor" destination="9Ha-cb-9H8" id="svJ-ZW-Fzb"/>
